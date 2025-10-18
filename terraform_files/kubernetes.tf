@@ -5,7 +5,7 @@ resource "aws_instance" "kubernetes-server" {
 ami = "ami-02d26659fd82cf299"
 instance_type = "t3.medium"
 vpc_security_group_ids =["sg-036c1f05808d53b47"]
-key_name = "sir"
+key_name = "jen_doc"
   root_block_device {
       volume_size = 20
       volume_type = "gp2"
