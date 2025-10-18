@@ -60,11 +60,11 @@ pipeline {
       steps{
         sh 'chmod 600 ./terraform_files/jen_doc.pem' 
         withEnv(["PATH+MINIKUBE=/usr/local/bin"]) {
-          sh 'minikube start --memory=2048mb'
+          sh 'minikube start'
         }
-        sh 'sleep 20'
-        sh 'ssh -o StrictHostKeyChecking=no -i ./terraform_files/jen_doc.pem deployment.yml ubuntu@172.31.9.18:/home/ubuntu/'
-        sh 'ssh -o StrictHostKeyChecking=no -i ./terraform_files/jen_doc.pem service.yml ubuntu@172.31.9.18:/home/ubuntu/'
+        sh 'sleep 30'
+        sh 'scp -o StrictHostKeyChecking=no -i ./terraform_files/jen_doc.pem deployment.yml ubuntu@172.31.9.18:/home/ubuntu/'
+        sh 'scp -o StrictHostKeyChecking=no -i ./terraform_files/jen_doc.pem service.yml ubuntu@172.31.9.18:/home/ubuntu/'
       script{
         try{
         sh 'ssh -o StrictHostKeyChecking=no -i ./terraform_files/jen_doc.pem ubuntu@172.31.9.18 kubectl apply -f .'
