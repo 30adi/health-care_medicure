@@ -72,8 +72,8 @@ pipeline {
       //   sh 'ssh -o StrictHostKeyChecking=no -i ./terraform_files/jen_doc.pem ubuntu@172.31.17.230 kubectl apply -f .'
       //   }
       // }
-    }
-  }
+  //   }
+  // }
   }
 }
  
